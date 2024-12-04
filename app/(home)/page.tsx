@@ -32,12 +32,12 @@ const HomePage = async ({ searchParams: { month } }: HomePageProps) => {
   return (
     <>
       <NavBar />
-      <div className="space-y-6 p-6">
+      <div className="flex flex-col space-y-6 p-6">
         <div className="flex justify-between">
           <h1 className="text-2xl font-bold">Dashboard</h1>
           <TimeSelect />
         </div>
-        <div className="grid grid-cols-[2fr,1fr]">
+        <div className="grid grid-cols-[2fr,1fr] gap-4">
           <div className="flex flex-col gap-6">
             <SummaryCards month={month} {...dashboard} />
 
