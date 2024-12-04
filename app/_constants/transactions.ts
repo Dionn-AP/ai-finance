@@ -19,6 +19,16 @@ export const TRANSACTION_TYPE_OPTIONS = [
   },
 ];
 
+export const TRANSACTION_PAYMENT_METHOD_ICONS = {
+  [TransactionpaymentMethod.CREDIT_CARD]: "credit-card.svg",
+  [TransactionpaymentMethod.DEBIT_CARD]: "debit-card.svg",
+  [TransactionpaymentMethod.BANK_TRANSFER]: "bank-transfer.svg",
+  [TransactionpaymentMethod.BANK_SLIP]: "bank-slip.svg",
+  [TransactionpaymentMethod.CASH]: "money.svg",
+  [TransactionpaymentMethod.PIX]: "pix.svg",
+  [TransactionpaymentMethod.OTHER]: "other.svg",
+};
+
 export const TRANSACTION_CATEGORY_LABEL = {
   EDUCATION: "Educação",
   ENTERTAINMENT: "Entretenimento",
