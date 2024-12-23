@@ -9,6 +9,7 @@ import { getDashboard } from "../_data/get-dashboard";
 import ExpensesPerCategory from "./_components/expenses-per-category";
 import LastTransactions from "./_components/last-transaction";
 import { canUserAddTransaction } from "../_data/can-user-add-transaction";
+import AiReportButton from "./_components/ai-report-button";
 
 interface HomePageProps {
   searchParams: {
@@ -25,7 +26,7 @@ const HomePage = async ({ searchParams: { month } }: HomePageProps) => {
 
   const monthInvaild = !month || !isMatch(month, "MM");
   if (monthInvaild) {
-    redirect(`?month=${new Date().getMonth()}`);
+    redirect(`?month=${new Date().getMonth() + 1}`);
   }
 
   const dashboard = await getDashboard(month);
@@ -38,7 +39,10 @@ const HomePage = async ({ searchParams: { month } }: HomePageProps) => {
       <div className="flex flex-col space-y-6 p-6">
         <div className="flex justify-between">
           <h1 className="text-2xl font-bold">Dashboard</h1>
-          <TimeSelect />
+          <div className="flex items-center gap-4">
+            <AiReportButton month={month} />
+            <TimeSelect />
+          </div>
         </div>
         <div className="grid grid-cols-[2fr,1fr] gap-4">
           <div className="flex flex-col gap-6">
