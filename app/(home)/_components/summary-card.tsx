@@ -7,6 +7,7 @@ interface SummaryCardProps {
   title: string;
   amount: number;
   size?: "small" | "large";
+  userCanAddTransaction?: boolean;
 }
 
 const SummaryCard = ({
@@ -14,6 +15,7 @@ const SummaryCard = ({
   title,
   amount,
   size = "small",
+  userCanAddTransaction,
 }: SummaryCardProps) => {
   const bgColorIcon = (title: string) => {
     if (title === "Saldo") {
@@ -48,7 +50,9 @@ const SummaryCard = ({
             currency: "BRL",
           }).format(amount)}
         </p>
-        {size === "large" && <AddTransactionButton />}
+        {size === "large" && (
+          <AddTransactionButton userCanAddTransaction={userCanAddTransaction} />
+        )}
       </CardContent>
     </Card>
   );
