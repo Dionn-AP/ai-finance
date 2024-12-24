@@ -15,7 +15,6 @@ const SubscriptionPage = async () => {
   }
   const user = await clerkClient().users.getUser(userId);
   const currentMonthTransactions = await getCurrentMonthTransaction();
-  console.log({ currentMonthTransactions });
   const hasPremiumPlan = user?.publicMetadata.subscriptionPlan === "premium";
   return (
     <>
